@@ -11,20 +11,20 @@ class DB {
     return this.connection.query(
       // CREATE SELECT STATMENT WITH THE FOLLOWING COLUMNS FROM THREE TABLES.
       // id, first_name, last_name FROM employee TABLE AND department name from department TABLE AND SELECT salary FROM role TABLE
-      // YOUR NEED TO USE LEFT JOINS TO JOIN THREE TABLES
+      // YOU NEED TO USE LEFT JOINS TO JOIN THREE TABLES
       // TODO: YOUR CODE HERE
       `SELECT \
-      employee.id, \
-      employee.first_name, \
-      employee.last_name, \
-      role.salary, \
-      department.name AS department, \
-      role.title,  \
-      CONCAT (manager.first_name, ' ',  manager.last_name) AS manager \
-    FROM employee \
-    LEFT JOIN role ON employee.role_id = role.id \
-    LEFT JOIN department ON role.department_id = department.id \
-    LEFT JOIN employee AS manager ON employee.manager_id = manager.id`
+        employee.id, \
+        employee.first_name, \
+        employee.last_name, \
+        role.salary, \
+        department.name AS department, \
+        role.title,  \
+        CONCAT (manager.first_name, ' ',  manager.last_name) AS manager \
+      FROM employee \
+      LEFT JOIN role ON employee.role_id = role.id \
+      LEFT JOIN department ON role.department_id = department.id \
+      LEFT JOIN employee AS manager ON employee.manager_id = manager.id`
     );
   }
 
@@ -72,7 +72,7 @@ class DB {
       role.salary, \
       department.name AS department \
       FROM role \
-      LEFT JOIN department ON role.department_id = department_id`
+      LEFT JOIN department ON role.department_id = department.id`
     );
   }
 
@@ -106,7 +106,8 @@ class DB {
   // Find all employees in a given department, join with roles to display role titles
   findAllEmployeesByDepartment(departmentId) {
     return this.connection.query(
-      "SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee \
+      "SELECT employee.id, employee.first_name, employee.last_name, role.title \
+      FROM employee \
       LEFT JOIN role on employee.role_id = role.id \
       LEFT JOIN department department on role.department_id = department.id \
       WHERE department.id = ?;",
