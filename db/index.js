@@ -13,7 +13,18 @@ class DB {
       // id, first_name, last_name FROM employee TABLE AND department name from department TABLE AND SELECT salary FROM role TABLE
       // YOUR NEED TO USE LEFT JOINS TO JOIN THREE TABLES
       // TODO: YOUR CODE HERE
-
+      `SELECT \
+      employee.id, \
+      employee.first_name, \
+      employee.last_name, \
+      role.salary, \
+      department.name AS department, \
+      role.title,  \
+      CONCAT (manager.first_name, ' ',  manager.last_name) AS manager \
+    FROM employee \
+    LEFT JOIN role ON employee.role_id = role.id \
+    LEFT JOIN department ON role.department_id = department.id \
+    LEFT JOIN employee AS manager ON employee.manager_id = manager.id`
     );
   }
 
