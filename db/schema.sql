@@ -3,20 +3,13 @@ CREATE DATABASE employees;
 
 USE employees;
 
+--Creating the parent table, department, adding id as the primary key
 CREATE TABLE department (
-  -- CREATE id, name COLUMNS
-  -- MAKE id AS PRIMARY KEY
-  -- TODO: YOUR CODE HERE
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(30) UNIQUE NOT NULL
 );
-
+--creating first child table, role and using department_id as foreign key.
 CREATE TABLE role (
-  -- CREATE id AS INTERGER, title AS VARCHAR, salary AS DECIMAL, department_id AS INTEGER
-  -- MAKE id As PRIMARY KEY
-  -- MAKE department_id AS FOREIGN KEY REFERENCING department TABLE AND
-  -- MAKE CONSTRAINT 'ON DELETE CASCADE' (WITHOUT QUOTES) ON THIS FOREIGN KEY
-  -- TODO: YOUR CODE HERE
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(30) UNIQUE NOT NULL,
   salary DECIMAL NOT NULL,
@@ -26,13 +19,8 @@ CREATE TABLE role (
   REFERENCES department(id)
   ON DELETE CASCADE
 );
-
+--creating second child table, employee.
 CREATE TABLE employee (
-  -- CREATE COLUMNS: id AS INT, first_name AS VARCHAR, last_name AS VARCHAR, role_id AS INTEGER, AND manager_id AS INT.
-  -- MAKE id As PRIMARY KEY
-  -- MAKE role_id AS FOREIGN KEY REFERENCING role TABLE AND MAKE CONSTRAINT ON DELETE CASCADE ON THIS FOREIGN KEY
-  -- MAKE manager_id AS FOREIGN KEY REFERENCING employee TABLE ITSELF AND MAKE CONSTRAINT 'ON DELETE SET NULL' ON THIS FOREIGN KEY
-  -- TODO: YOUR CODE HERE
   id INT PRIMARY KEY AUTO_INCREMENT,
   first_name VARCHAR(30) UNIQUE NOT NULL,
   last_name VARCHAR(30) UNIQUE NOT NULL,
