@@ -3,12 +3,12 @@ CREATE DATABASE employees;
 
 USE employees;
 
---Creating the parent table, department, adding id as the primary key
+
 CREATE TABLE department (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(30) UNIQUE NOT NULL
 );
---creating first child table, role and using department_id as foreign key.
+
 CREATE TABLE role (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(30) UNIQUE NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE role (
   REFERENCES department(id)
   ON DELETE CASCADE
 );
---creating second child table, employee.
+
 CREATE TABLE employee (
   id INT PRIMARY KEY AUTO_INCREMENT,
   first_name VARCHAR(30) UNIQUE NOT NULL,

@@ -29,7 +29,6 @@
   If you have any questions about this projects, please contact me directly at nathaniel.epstein@gmail.com. You can view more of my projects at https://github.com/natpitt2393.
 
   ## Media
-  ![Note-Taker](./retrievenote.png)
-  ![Note-Taker](./mainpage.png)
-  ![Note-Taker](./addnewnote.png)
-  ![napitt2393/Note-Taker](https://github.com/natpitt2393/Note-Taker)
+  ![Employee-Tracker](./EMPLOYEETRACKER.gif)
+  ![Employee-Tracker](./FUNCTIONALEMPLOYEETRACKER.png)
+  ![napitt2393/Employee-Tracker](https://github.com/natpitt2393/Employee-Tracker)
